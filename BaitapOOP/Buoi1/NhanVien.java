@@ -2,17 +2,32 @@ package BaitapOOP.Buoi1;
 
 public class NhanVien {
 
-        String maNV = "001";
-        String hoTen = "Nguyen Van A";
-        int age = 30;
-        String address = "Can Tho";
-        String number = "0123456789";
-        String email = "nva@gmail.com";
+        public String maNV;
+        public String hoTen;
+        public int age;
+        public String address;
+        public String number;
+        public String email;
 
-        public NhanVien() {
-        }
+    public NhanVien(String maNV, String hoTen, int age, String address, String number, String email) {
+        this.maNV = maNV;
+        this.hoTen = hoTen;
+        this.age = age;
+        this.address = address;
+        this.number = number;
+        this.email = email;
+    }
 
-        public String getMaNV() {
+    public void getInfo(){
+        System.out.println("MNV: " + getMaNV());
+        System.out.println("Họ và tên: " + getHoTen());
+        System.out.println("Tuổi: " + getAge());
+        System.out.println("Địa chỉ: " + getAddress());
+        System.out.println("SDT: " + getNumber());
+        System.out.println("Email: " + getEmail());
+    }
+
+    public String getMaNV() {
             return this.maNV;
         }
 
@@ -60,14 +75,5 @@ public class NhanVien {
             this.email = this.email;
         }
 
-        public static void main(String[] args) {
-            NhanVien nhanvien1 = new NhanVien();
-            System.out.println("MNV: " + nhanvien1.getMaNV());
-            System.out.println("Họ và tên: " + nhanvien1.getHoTen());
-            System.out.println("Tuổi: " + nhanvien1.getAge());
-            System.out.println("Địa chỉ: " + nhanvien1.getAddress());
-            System.out.println("SDT: " + nhanvien1.getNumber());
-            System.out.println("Email: " + nhanvien1.getEmail());
-        }
     }
 
