@@ -1,0 +1,9 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="Suite Add Category" verbose="1">
+    <test name="Add Category test">
+        <classes>
+            <class name="Baitap1_2.AddCategory" />
+        </classes>
+    </test>
+</suite>
