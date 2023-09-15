@@ -1,6 +1,6 @@
-package Baitap1_2;
+package Baitap.Baitap1_2_3;
 
-import Bai10.Common.Basetest;
+import Baitap.Basetest;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
@@ -11,21 +11,9 @@ import org.testng.annotations.Test;
 import java.util.List;
 
 public class AddCategoryAssert extends Basetest {
-    @Test(priority = 1)
-    public void testLoginToCategory(){
-        driver.get("https://cms.anhtester.com/login");
-        driver.findElement(By.xpath("//input[@id='email']")).clear();
-        driver.findElement(By.xpath("//input[@id='password']")).clear();
-        driver.findElement(By.xpath("//input[@id='email']")).sendKeys("admin@example.com");
-        driver.findElement(By.xpath("//input[@id='password']")).sendKeys("123456");
-        driver.findElement(By.xpath("//button[normalize-space() = 'Login']")).click();
-        driver.findElement(By.xpath("//span[normalize-space() = 'Products']")).click();
-        driver.findElement(By.xpath("//span[normalize-space()='Category']")).click();
-    }
-    @Test(priority = 2)//Kiem tra Text trang AddCategory
+    @Test(priority = 1)//Kiem tra Text trang AddCategory
     public void testAddCategory1(){
-        testLoginToCategory();// goi lai testLoginToCategory
-
+        Login();
         driver.findElement(By.xpath("//span[normalize-space()= 'Add New category']")).click();
         String TitleAdd = driver.findElement(By.xpath("//h5[normalize-space() ='Category Information']")).getText();
         System.out.println(TitleAdd);
@@ -71,9 +59,9 @@ public class AddCategoryAssert extends Basetest {
         Assert.assertTrue(Save, "Nut Save khong hien thi");
 
     }
-    @Test(priority = 3)//Them moi thanh cong categories và kiem tra Text tren trang chu
+    @Test(priority = 2)//Them moi thanh cong categories và kiem tra Text tren trang chu
     public void testAddCategory2(){
-        testLoginToCategory();// goi lai testLoginToCategory
+        Login();
         driver.findElement(By.xpath("//span[normalize-space()= 'Add New category']")).click();
         //Input Name
         driver.findElement(By.xpath("(//form[@class='form-horizontal']/child::div)/child::div//input[@id= 'name']")).sendKeys("Category1");
@@ -93,7 +81,7 @@ public class AddCategoryAssert extends Basetest {
         //Select image Banner
         driver.findElement(By.xpath("(//div[@class='input-group-text bg-soft-secondary font-weight-medium'][normalize-space()='Browse'])[1]")).click();
         driver.findElement(By.xpath("//input[@placeholder='Search your files']")).click();
-        driver.findElement(By.xpath("//input[@placeholder='Search your files']")).sendKeys("sting.jpg");
+        driver.findElement(By.xpath("//input[@placeholder='Search your files']")).sendKeys("sting");
         sleep(2);
         driver.findElement(By.xpath("//div[@title='stingvang.jpg']")).click();
         sleep(1);
@@ -102,7 +90,7 @@ public class AddCategoryAssert extends Basetest {
         sleep(1);
         driver.findElement(By.xpath("(//div[@class='input-group-text bg-soft-secondary font-weight-medium'][normalize-space()='Browse'])[2]")).click();
         driver.findElement(By.xpath("//input[@placeholder='Search your files']")).click();
-        driver.findElement(By.xpath("//input[@placeholder='Search your files']")).sendKeys("Cosy.jpg");
+        driver.findElement(By.xpath("//input[@placeholder='Search your files']")).sendKeys("Cosy");
         sleep(2);
         driver.findElement(By.xpath("//div[@title='Cosy.png']")).click();
         driver.findElement(By.xpath("//button[normalize-space()='Add Files']")).click();
@@ -121,6 +109,7 @@ public class AddCategoryAssert extends Basetest {
         String message = driver.findElement(By.xpath("//span[@data-notify='message']")).getText();
         System.out.println(message);
         Assert.assertEquals(message, "Category has been inserted successfully", "Dang ky khong thanh cong");
+        sleep(2);
 
         String AllCategories = driver.findElement(By.xpath("//h1[normalize-space()='All categories']")).getText();
         System.out.println(AllCategories);
@@ -136,12 +125,13 @@ public class AddCategoryAssert extends Basetest {
         Assert.assertTrue(Add,"Nut add khong hien thi");
 
     }
-    @Test(priority = 4)
+    @Test(priority = 3)
     public void testSearch() {
-        testLoginToCategory();
+        Login();
         driver.findElement(By.xpath("//input[@id = 'search']/parent::div//input")).click();
         driver.findElement(By.xpath("//input[@id = 'search']/parent::div//input")).sendKeys("Category1");
         driver.findElement(By.xpath("//input[@id = 'search']/parent::div//input")).sendKeys(Keys.ENTER);
+        sleep(1);
 
         boolean searchcategory = driver.findElement(By.xpath("//table[@class='table aiz-table mb-0 footable footable-1 breakpoint-xl']//tr[1]//td[2]")).isDisplayed();
         Assert.assertTrue(searchcategory,"Khong tim thay category vua tim");

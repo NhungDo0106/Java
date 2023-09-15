@@ -1,4 +1,4 @@
-package Baitap1_2;
+package Baitap.Baitap1_2_3;
 
 import Bai10.Common.Basetest;
 import org.openqa.selenium.*;

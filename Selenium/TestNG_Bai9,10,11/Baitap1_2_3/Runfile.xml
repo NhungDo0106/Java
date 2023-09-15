@@ -3,7 +3,9 @@
 <suite name="Suite Add Category" verbose="1">
     <test name="Add Category test">
         <classes>
-            <class name="Baitap1_2.AddCategory" />
+            <class name="Baitap.Baitap1_2_3.AddCategoryAssert" />
+            <class name="Baitap.BT3_Part2.EditCategoryAssert" />
+            <class name="Baitap.BT3_Part2.DeleteCategoryAssert" />
         </classes>
     </test>
 </suite>
