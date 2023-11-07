@@ -1,0 +1,13 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="Test Customer" verbose="1">
+    <test name="Customer Page">
+<!--        <classes>-->
+<!--            <class name="ThucHanhBai20_21.Test.CustomerTest" >-->
+<!--            </class>-->
+<!--        </classes>-->
+        <packages>
+            <package name="ThucHanhBai20_21.Test" ></package>
+        </packages>
+    </test>
+</suite>
